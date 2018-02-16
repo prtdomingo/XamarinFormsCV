@@ -8,7 +8,7 @@ namespace XamarinFormsCV
         {
             InitializeComponent();
 
-            MainPage = new XamarinFormsCVPage();
+            MainPage = new NavigationPage(new CameraPage());
         }
 
         protected override void OnStart()

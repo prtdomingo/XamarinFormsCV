@@ -128,6 +128,20 @@
           "System.Xml.XDocument": "4.0.11"
         }
       },
+      "Plugin.Permissions/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/Plugin.Permissions.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.Permissions.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Permissions.dll": {}
+        }
+      },
       "runtime.native.System/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -833,6 +847,21 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "Xam.Plugin.Media/3.1.3.222-beta": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Plugin.Permissions": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/Plugin.Media.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.Media.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Media.dll": {}
+        }
+      },
       "Xam.Plugins.OnDeviceCustomVision/0.1.5-alpha": {
         "type": "package",
         "compile": {
@@ -1051,6 +1080,41 @@
         "dotnet_library_license.txt",
         "netstandard.library.1.6.0.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "Plugin.Permissions/2.2.1": {
+      "sha512": "ixEdsOBokh6eIofokJmru0u18hZKUODkvJZeest0CsHiiuRcO38yiTr+2Nq6Pg9hm0fhyavFQydhbldfHOp44Q==",
+      "type": "package",
+      "path": "plugin.permissions/2.2.1",
+      "files": [
+        "lib/MonoAndroid10/Plugin.Permissions.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Permissions.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.Permissions.Abstractions.xml",
+        "lib/MonoAndroid10/Plugin.Permissions.XML",
+        "lib/MonoAndroid10/Plugin.Permissions.dll",
+        "lib/MonoAndroid10/Plugin.Permissions.pdb",
+        "lib/UAP10/Plugin.Permissions.Abstractions.dll",
+        "lib/UAP10/Plugin.Permissions.Abstractions.pdb",
+        "lib/UAP10/Plugin.Permissions.Abstractions.xml",
+        "lib/UAP10/Plugin.Permissions.XML",
+        "lib/UAP10/Plugin.Permissions.dll",
+        "lib/UAP10/Plugin.Permissions.pdb",
+        "lib/UAP10/Plugin.Permissions.pri",
+        "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.xml",
+        "lib/Xamarin.iOS10/Plugin.Permissions.XML",
+        "lib/Xamarin.iOS10/Plugin.Permissions.dll",
+        "lib/netstandard1.0/Plugin.Permissions.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.Permissions.Abstractions.pdb",
+        "lib/netstandard1.0/Plugin.Permissions.Abstractions.xml",
+        "lib/netstandard1.0/Plugin.Permissions.deps.json",
+        "lib/netstandard1.0/Plugin.Permissions.dll",
+        "lib/netstandard1.0/Plugin.Permissions.pdb",
+        "lib/netstandard1.0/Plugin.Permissions.xml",
+        "plugin.permissions.2.2.1.nupkg.sha512",
+        "plugin.permissions.nuspec",
+        "readme.txt"
       ]
     },
     "runtime.native.System/4.0.0": {
@@ -3658,6 +3722,47 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "Xam.Plugin.Media/3.1.3.222-beta": {
+      "sha512": "PS6gMlx40kPXIzPCUDeJOV9nzg8OzOJiK16np3nRedFcRLHpea+vGZ6rY867TPgQOJPcCVc8hlB2HQlz9Y287A==",
+      "type": "package",
+      "path": "xam.plugin.media/3.1.3.222-beta",
+      "files": [
+        "lib/MonoAndroid10/Plugin.Media.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Media.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.Media.Abstractions.xml",
+        "lib/MonoAndroid10/Plugin.Media.dll",
+        "lib/MonoAndroid10/Plugin.Media.pdb",
+        "lib/MonoAndroid10/Plugin.Media.xml",
+        "lib/UAP10/Plugin.Media.Abstractions.dll",
+        "lib/UAP10/Plugin.Media.Abstractions.pdb",
+        "lib/UAP10/Plugin.Media.Abstractions.xml",
+        "lib/UAP10/Plugin.Media.XML",
+        "lib/UAP10/Plugin.Media.dll",
+        "lib/UAP10/Plugin.Media.pdb",
+        "lib/UAP10/Plugin.Media.pri",
+        "lib/Xamarin.iOS10/Plugin.Media.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Media.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Plugin.Media.Abstractions.xml",
+        "lib/Xamarin.iOS10/Plugin.Media.dll",
+        "lib/Xamarin.iOS10/Plugin.Media.xml",
+        "lib/netstandard1.0/Plugin.Media.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.Media.Abstractions.pdb",
+        "lib/netstandard1.0/Plugin.Media.Abstractions.xml",
+        "lib/netstandard1.0/Plugin.Media.deps.json",
+        "lib/netstandard1.0/Plugin.Media.dll",
+        "lib/netstandard1.0/Plugin.Media.pdb",
+        "lib/netstandard1.0/Plugin.Media.xml",
+        "lib/tizen40/Plugin.Media.Abstractions.dll",
+        "lib/tizen40/Plugin.Media.Abstractions.pdb",
+        "lib/tizen40/Plugin.Media.Abstractions.xml",
+        "lib/tizen40/Plugin.Media.deps.json",
+        "lib/tizen40/Plugin.Media.dll",
+        "lib/tizen40/Plugin.Media.pdb",
+        "readme.txt",
+        "xam.plugin.media.3.1.3.222-beta.nupkg.sha512",
+        "xam.plugin.media.nuspec"
+      ]
+    },
     "Xam.Plugins.OnDeviceCustomVision/0.1.5-alpha": {
       "sha512": "qr5zpjWFBgkCOaQu/uuC5ZeMNZiNYE3aoY+YszaF0PpGwsD5/QLt5rEu64HNiWn20oOvtVGRygBEqbqdYfT6qw==",
       "type": "package",
@@ -3858,6 +3963,7 @@
     "": [
       "Microsoft.NETCore.Portable.Compatibility >= 1.0.1",
       "NETStandard.Library >= 1.6.0",
+      "Xam.Plugin.Media >= 3.1.3.222-beta",
       "Xam.Plugins.OnDeviceCustomVision >= 0.1.5-alpha",
       "Xamarin.Forms >= 2.5.0.121934"
     ],
@@ -3882,16 +3988,29 @@
       }
     },
     "dependencies": {
-      "Xamarin.Forms": "2.5.0.121934",
-      "NETStandard.Library": "1.6.0",
       "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
-      "Xam.Plugins.OnDeviceCustomVision": {
+      "NETStandard.Library": "1.6.0",
+      "Xam.Plugins.OnDeviceCustomVision": "0.1.5-alpha",
+      "Xamarin.Forms": "2.5.0.121934",
+      "Xam.Plugin.Media": {
         "target": "Package",
-        "version": "[0.1.5-alpha, )"
+        "version": "[3.1.3.222-beta, )"
       }
     },
     "frameworks": {
       "netstandard1.5": {}
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: NETStandard.Library from 1.6.1 to 1.6.0. Reference the package directly from the project to select a different version. \n XamarinFormsCV (>= 1.0.0) -> Xam.Plugin.Media (>= 3.1.3.222-beta) -> NETStandard.Library (>= 1.6.1) \n XamarinFormsCV (>= 1.0.0) -> NETStandard.Library (>= 1.6.0)",
+      "libraryId": "NETStandard.Library",
+      "targetGraphs": [
+        ".NETStandard,Version=v1.5"
+      ]
+    }
+  ]
 }
