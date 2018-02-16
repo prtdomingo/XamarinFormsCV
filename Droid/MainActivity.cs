@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Plugin.Permissions;
+using Xam.Plugins.OnDeviceCustomVision;
 
 namespace XamarinFormsCV.Droid
 {
@@ -13,6 +14,7 @@ namespace XamarinFormsCV.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
+            CrossImageClassifier.Current.Init("model.pb", ModelType.General);
 
             base.OnCreate(bundle);
 

@@ -42,6 +42,7 @@
     </Compile>
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="CameraViewModel.cs" />
+    <Compile Include="PredictionModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="project.json" />
