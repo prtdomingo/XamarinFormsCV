@@ -12,15 +12,29 @@ namespace XamarinFormsCV
 {
     public class CameraViewModel : ViewModelBase
     {
-        public ICommand CapturePhotoCommand { get; }
         private const double _confidenceLevelThreshold = 0.5;
-        private string _tagName = "";
+        private string _message = "";
+        private bool _canTakePhoto = true;
 
-        public string TagName 
+        public bool CanTakePhoto
         {
-            get => _tagName;
-            set => Set(ref _tagName, value);
+            get => _canTakePhoto;
+            set
+            {
+                if (Set(ref _canTakePhoto, value))
+                    RaisePropertyChanged(nameof(ShowSpinner));
+            }
         }
+
+        public bool ShowSpinner => !CanTakePhoto;
+
+        public string Message 
+        {
+            get => _message;
+            set => Set(ref _message, value);
+        }
+
+        public ICommand CapturePhotoCommand { get; }
 
         public CameraViewModel()
         {
@@ -29,16 +43,25 @@ namespace XamarinFormsCV
 
         private async Task CapturePhoto()
         {
+            CanTakePhoto = false;
+
             var options = new StoreCameraMediaOptions { PhotoSize = PhotoSize.Medium };
             var file = await CrossMedia.Current.TakePhotoAsync(options);
             var classificationModel = await GetBestTag(file);
-            TagName = classificationModel != null ? $"Confidence Level: {classificationModel.Value.Probability} | Name: {classificationModel.Value.Tag}" : "I don't know what this is";
+            CanTakePhoto = true;
+
+            if(classificationModel != null)
+            {
+                Message = $"Confidence Level: {classificationModel.Value.Probability.ToString("0.0%")} | Name: {classificationModel.Value.Tag}";
+            }
+            else 
+            {
+                Message = "I don't know what this is";
+            }
 
             // Delete the photo the user just taken
             DeletePhoto(file);
         }
-
-
 
         private async Task<ImageClassification?> GetBestTag(MediaFile file)
         {
@@ -47,7 +70,8 @@ namespace XamarinFormsCV
                 using (var stream = file.GetStream())
                 {
                     var tags = await CrossImageClassifier.Current.ClassifyImage(stream);
-                    return tags.OrderByDescending(t => t.Probability).FirstOrDefault(t => t.Probability >= _confidenceLevelThreshold);
+                    // only get the tags with confidence level that is more than 0.5 and not more than 1.0
+                    return tags.OrderByDescending(t => t.Probability).FirstOrDefault();
                 }
             }
             catch(Exception)

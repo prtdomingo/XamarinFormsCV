@@ -3,5 +3,16 @@
     <ContentPage.BindingContext>
         <local:CameraViewModel/>
     </ContentPage.BindingContext>
-    <Button Text="Capture Photo" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding CapturePhotoCommand}"/>
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <Label Text="{Binding Message}"/>
+        <Button Text="Capture Photo" Command="{Binding CapturePhotoCommand}" IsEnabled="{Binding CanTakePhoto}"/>
+
+        <StackLayout Grid.RowSpan="3" Orientation="Vertical" Spacing="20"
+                     HorizontalOptions="Center" VerticalOptions="Center"
+                     IsVisible="{Binding ShowSpinner}">
+            <ActivityIndicator Color="Blue" 
+                               IsRunning="{Binding ShowSpinner}"/>
+            <Label TextColor="Blue" Text="Loading..."/>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>
