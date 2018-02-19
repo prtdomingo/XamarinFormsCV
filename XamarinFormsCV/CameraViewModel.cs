@@ -47,10 +47,10 @@ namespace XamarinFormsCV
 
             var options = new StoreCameraMediaOptions { PhotoSize = PhotoSize.Medium };
             var file = await CrossMedia.Current.TakePhotoAsync(options);
-            var classificationModel = await GetBestTag(file);
+            var classificationModel = await IdentifyImage(file);
             CanTakePhoto = true;
 
-            if(classificationModel != null)
+            if(classificationModel != null && classificationModel.Value.Probability != 0 && !string.IsNullOrEmpty(classificationModel.Value.Tag))
             {
                 Message = $"Confidence Level: {classificationModel.Value.Probability.ToString("0.0%")} | Name: {classificationModel.Value.Tag}";
             }
@@ -63,14 +63,14 @@ namespace XamarinFormsCV
             DeletePhoto(file);
         }
 
-        private async Task<ImageClassification?> GetBestTag(MediaFile file)
+        private async Task<ImageClassification?> IdentifyImage(MediaFile file)
         {
             try
             {
                 using (var stream = file.GetStream())
                 {
                     var tags = await CrossImageClassifier.Current.ClassifyImage(stream);
-                    // only get the tags with confidence level that is more than 0.5 and not more than 1.0
+
                     return tags.OrderByDescending(t => t.Probability).FirstOrDefault();
                 }
             }
